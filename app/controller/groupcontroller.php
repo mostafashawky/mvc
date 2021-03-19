@@ -9,10 +9,9 @@ class GroupController extends AbstractController
 {
     public function defaultAction()
     {
-       
-        echo "<pre>";
-         print_r( GroupName::getAll( $this->_database ));
-        echo "</pre>";
-         //   $this->_view();
+        // Get All Group And Push It Into Data Array 
+        $this->_data['group'] = GroupName::getAll( $this->_database );
+    
+        $this->_view();
     }
 }

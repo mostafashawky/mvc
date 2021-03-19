@@ -6,6 +6,9 @@
  * Description: The App Template Data 
 */
 
+// Check If Session Contain Language 
+$language = isset( $session->lang ) ? $session->lang : DEFAULT_LANGUAGE;
+
 return [
     'templates_header' => [
         'starttemplateheader' => TEMPLATE_PATH . 'starttemplateheader.php',
@@ -13,7 +16,7 @@ return [
         'header_resources' => [
             'normalize'    => CSS . 'normalize.css',
             'fontawesome'  => CSS . 'font-awesome.min.css',
-            'maincss'      => CSS . 'main.css',
+            'maincss'      => CSS . 'main.' .$language.'.css',
         ],
         
         'endtemplateheader' => TEMPLATE_PATH . 'endtemplateheader.php', 

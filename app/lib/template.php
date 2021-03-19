@@ -57,6 +57,7 @@ class Template
            // Loop Through Header Reosources To Generate Css Links
            $links = $this->_dataTemplate['templates_header']['header_resources'];
            foreach( $links as $link ){
+
                echo "<link rel='stylesheet' href='".$link."' >"; 
            }
            

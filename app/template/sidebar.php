@@ -9,32 +9,38 @@
 	<div class="sidebar-links">
 		<ul class="links list-unstyled">
 			<li class="link">
-				<a  href = "/index"><i class="fa fa-home"></i> 	<?= $sidebar_links_homepage ?> </a> 
+				<a  href = "/index"><i class="fa fa-home"></i> <?= $sidebar_links_homepage ?> </a> 
 			</li>
 			<li class="link">
-				<a  href = "/index"><i class="fa fa-home"></i> الموردين</a> 
+				<a  href = "/index"><i class="fa fa-user-circle"></i> <?= $sidebar_links_supplier ?></a> 
 			</li>
 			<li class="link">
-				<a class="toggle-menu" href="#"><i class="fa fa-user"></i> المستخدمين</a>
+				<a  href = "/index"><i class="fa fa-user"></i> <?= $sidebar_links_client ?></a> 
+			</li>
+			<li class="link">
+				<a class="toggle-menu" href="#"><i class="fa fa-user"></i> <?= $sidebar_links_user?> </a>
 				<ul class="menu-group list-unstyled">
 					<li class="link">
-						<a href="#"><i class="fa fa-key"></i> الصلاحيات</a>
+						<a href="#"><i class="fa fa-key"></i> <?= $sidebar_links_privilege ?></a>
 					</li>
 					<li class="link">
-						<a href="#"><i class="fa fa-user"></i>المجموعات</a>
+						<a href="#"><i class="fa fa-users"></i><?= $sidebar_links_group?></a>
 					</li>
 				</ul> 
 			</li>
 			<li class="link">
-				<a class="toggle-menu" href="#"><i class="fa fa-home"></i> المخزن</a> 
+				<a class="toggle-menu" href="#"><i class="fa fa-shopping-cart"></i><?= $sidebar_links_store?></a> 
 				<ul class="menu-group list-unstyled">
 					<li class="link">
-						<a href="#"><i class="fa fa-key"></i> الاقسام</a>
+						<a href="#"><i class="fa fa-key"></i> <?= $sidebar_links_category?></a>
 					</li>
 					<li class="link">
-						<a href="#"><i class="fa fa-user"></i>المنتجات</a>
+						<a href="#"><i class="fa fa-user"></i><?= $sidebar_links_product ?></a>
 					</li>
 				</ul> 
+			</li>
+			<li class="link">
+				<a href="/language"> <i class="fa fa-file"></i> <?= $sidebar_links_report ?>  </a> 
 			</li>
 			<li class="link">
 				<a href="/language"> <i class="fa fa-language"></i> <?= $sidebar_links_changelanguage ?>  </a> 

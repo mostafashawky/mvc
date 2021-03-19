@@ -1,6 +1,6 @@
 <?php
+
 include '../app/config/config.php';
-//include '..' . DS . 'app' . DS .'config'. DS . 'configtemplate.php';
 include APP_PATH . DS . 'lib' . DS . 'autoload.php';
 
 // Import Session Module
@@ -32,8 +32,6 @@ $template = new Template( $configTemplate );
 $language = new Language();
 $FrontController = new FrontController( $template, $language, $database );
 $FrontController->dispatch();
-
-
 
 
 

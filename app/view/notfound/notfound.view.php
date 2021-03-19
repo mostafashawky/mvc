@@ -1,1 +1,1 @@
-<h1>Sorry Mostafa This Page Dosen't Exist</h1>
+<h1 class="notfound-title"><?= $not_found_description ?> </h1>

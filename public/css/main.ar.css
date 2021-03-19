@@ -7,6 +7,7 @@ body
 	font-family: 'Tajawal', sans-serif;
 	background-color: #f0f6f9;
 	font-size: 15px;
+    direction: rtl;
 }
 /* FrameWork Css Classes */
 .container-fluid 
@@ -36,11 +37,11 @@ body
 }
 .float-left 
 {
-    float: left;
+    float: right;
 }
 .float-right 
 {
-    float: right;
+    float: left;
 }
 .list-unstyled 
 {
@@ -48,6 +49,13 @@ body
 }
 
 /* End FrameWord Css */
+
+/* Start Not Found File Css */
+.notfound-title {
+    color: #24344b;
+}
+
+/* End Not Found File Css */
 
 /* Header Style */
 .header 
@@ -70,6 +78,9 @@ body
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
+.header .bread-crumb-container {
+    float: right;
+}
 .header .bread-crumb {
     display: inline-block;
     margin-right: 9px;
@@ -80,13 +91,17 @@ body
     font-size: 1.2rem;
     font-weight: bold;
 }
+.header .notification {
+    float: left;
+}
 .header .icon-notification {
     display: inline-block;
+    padding-top: 9px;
 }
 .header .icon-notification .fa{
     color: #fff;
     font-size: 1.1rem;
-    margin-left: 10px;
+    margin: 0 10px;
     cursor: pointer;
 }
 .header .admin {

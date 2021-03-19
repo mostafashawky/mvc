@@ -42,27 +42,30 @@ class FrontController {
     }
     public function __construct( Template $template, Language $language, DATABASE $database  ) // @param accept the template, language injection object
     {
-        // the parseurl function will work when instantiate object
+        // Run The ParseUrl Method To Obtain The Controller Data
         $this->parseUrl();
         $this->_template = $template;
         $this->_language = $language;
         $this->_database  = $database;
-                   
     }
     public function dispatch()
     {
+        // Get The Controller Name String Contain The Name of Namespace
         $controller = "MVC\CONTROLLER\\".ucfirst( $this->_controller )."Controller";
-
-        if( !class_exists( $controller ) ) { //if the controller dosen't exist then we will can not found controller
-            $controller = "MVC\CONTROLLER\\".SELF::NOT_FOUND_CONTROLLER."";
-        }
-        $controller = new $controller();
+        // Get The Action Name
         $action = $this->_action . 'Action';
-        if( !method_exists( $controller, $action ) ){ //check if the method exist in controller object
-            $this->_action = $action = self::NOT_FOUND_ACTION ;
+        
+        // Check If The Controller Class Exist or Controller Dosen't Contain The Method Action 
+        if( !class_exists( $controller ) || !method_exists( $controller, $action ) ) {  
+            // The Not Found Controller Moduel
+            $controller = "MVC\CONTROLLER\\" . SELF::NOT_FOUND_CONTROLLER."";
+            // The Not Found Action
+            $action     = $this->_action = self::NOT_FOUND_ACTION;
         }
-
-        //set the controller its property
+        // Make Instance From The Controller Module Which Is The Exist Controller Or Not Exist
+        $controller = new $controller();
+                
+        // Provide The Controller Module With Data That We Get It From The FrontController Module 
         $controller->setController( $this->_controller );
         $controller->setAction(     $this->_action     );
         $controller->setParams(     $this->_params     );
@@ -70,6 +73,5 @@ class FrontController {
         $controller->setTemplate(   $this->_template   );
         $controller->setDatabase(   $this->_database   );
         $controller->$action();
-
     }
 }

@@ -24,10 +24,9 @@
         // Extract Controller And Action
         $conact = explode( '|', $conact );
 
-        // Get The Translation Path
-     
+        // Get The Translation File Path
         $languagePath = LANGUAGE_PATH . $defaultLanguage . DS . $conact[0] . DS . $conact[1] .'.lang.php';
-
+        // Check If The Translation File Exist
         if( file_exists( $languagePath ) ){
             require_once $languagePath;
 

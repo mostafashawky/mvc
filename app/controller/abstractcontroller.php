@@ -51,28 +51,23 @@ class AbstractController
     }
     protected function _view()
     {
-        //extract the data from model in view
+        // Get The Controller And Action Required To Load It
         $view = APP_VIEW . $this->_controller . 'controller'. DS . $this->_action . '.view.php';
-        
-        if( $this->_action == FrontController::NOT_FOUND_ACTION ){ //check if the action contain not found action
+        // Check If The Action Value Is Not Found Action To Load The Notfound View
+        if( $this->_action == FrontController::NOT_FOUND_ACTION ){ 
             $view = APP_VIEW . 'notfound' . DS . 'notfound.view.php';
         }
-
-        if( file_exists( $view ) ) { //check if the file exists
-
-             
+        // Check If The File Exists
+        if( file_exists( $view ) ) { 
             // Get Translation Array Of Action View
             $translation = $this->_language->getTranslation();
-        
-            // Pass The View Path To Template Object
-            $this->_template->setviewPath( $view );  
-            
+            // Provide The Logic Data To Template Object To View It
             $this->_template->setlogicData( $this->_data, $translation );
-
+            // Provide The View Path To Template Object
+            $this->_template->setviewPath( $view );  
+            // Render App To Load The Templates 
             $this->_template->renderApp();
                  
-        } else {
-            require_once APP_VIEW . $this->_controller . 'controller' . DS . 'notfoundindex.php';
         }
 
     }

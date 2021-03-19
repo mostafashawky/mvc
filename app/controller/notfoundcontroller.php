@@ -10,8 +10,11 @@ namespace MVC\CONTROLLER;
 use MVC\CONTROLLER\AbstractController;
 
 class NotfoundController extends AbstractController{
-    public function __construct()
+    public function notfoundAction()
     {
-        echo 'hello Mostafa I\'M not found controller class ^_^';
+        $this->_language->loadtranslationFile('template|common');
+        $this->_language->loadtranslationFile('notfound|notfound');
+        $this->_view();
     }
+
 }
