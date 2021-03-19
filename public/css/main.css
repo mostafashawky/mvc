@@ -1,0 +1,326 @@
+* 
+{
+    box-sizing:  border-box;
+}
+body 
+{
+	font-family: 'Tajawal', sans-serif;
+	background-color: #f0f6f9;
+	font-size: 15px;
+}
+/* FrameWork Css Classes */
+.container-fluid 
+{
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.container 
+{
+    width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0px auto;
+} 
+.container-fluid::after 
+{
+    content: '';
+    display: block;
+    clear: both;
+}
+.container::after 
+{
+    content: '';
+    display: block;
+    clear: both;
+}
+.float-left 
+{
+    float: left;
+}
+.float-right 
+{
+    float: right;
+}
+.list-unstyled 
+{
+    list-style: none;
+}
+
+/* End FrameWord Css */
+
+/* Header Style */
+.header 
+{
+    background: #0073f9;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+}
+.header .toggle
+{
+    display: inline-block;
+}
+.header .toggle .fa
+{
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-right: 15px;
+    -wekbit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.header .bread-crumb {
+    display: inline-block;
+    margin-right: 9px;
+}
+.header .bread-crumb a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.header .icon-notification {
+    display: inline-block;
+}
+.header .icon-notification .fa{
+    color: #fff;
+    font-size: 1.1rem;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.header .admin {
+    display: inline-block;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #bdbdbd;
+    padding: 6px;
+    cursor: pointer;
+}
+
+/* Start Sidebar */
+.wrapper-action {
+	overflow: hidden;
+    height: 100vh;
+}
+.sidebar 
+{
+    width: 250px;
+    height: 100%;
+    background-color: #24344b;
+    float: right;
+    position: absolute;
+    right: 0px;
+    z-index: 999;
+    -webkit-transition: all 0.5ms;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    
+}
+.sidebar.none 
+{
+	right: -250px;
+}
+.sidebar .admin-information
+ {
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    text-decoration: none;
+    margin: 20px 0px 10px;
+    text-align: center;
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
+    border-bottom: 1px solid #8a8a8a;;
+}
+.sidebar .admin-information .image-admin
+{
+	background-image: url( '../img/image-admin.jpg' );
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: block;
+	margin: 0px auto;
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+}
+.sidebar .admin-information .admin-name
+{
+	color: #fff;
+	font-weight: bold;
+	display: block;
+	text-decoration: none;
+	margin: 20px 0px 10px;
+}
+.sidebar .admin-information .admin-role
+{
+    color: #bdbdbd;
+    font-weight: 600;
+    display: block;
+    font-size: 15px;
+}
+.sidebar .sidebar-links .links
+{
+	padding: 5px 0px; 	
+	margin: 0px;
+    list-style-type: none;
+}
+.sidebar .sidebar-links .link
+{
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.sidebar .sidebar-links .link:hover
+{
+    background-color: #20385a;
+}
+.sidebar .sidebar-links .links .link a
+{
+	color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px 27px;
+    font-weight: 600;
+}
+.sidebar .sidebar-links .links .link a .fa
+{
+	margin-left: 5px;
+} 
+.sidebar .sidebar-links .links .link .menu-group
+{
+    transform: scale(1,0);
+    transform-origin: top center;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    height: 0px;
+}
+.sidebar .sidebar-links .links .link .menu-group.active
+{
+    -webkit-transform: scale(1,1) ;
+    -moz-transform: scale( 1,1 );
+    transform: scale( 1, 1) ;
+    height: 80px;
+}
+/* End SideBar */
+
+/* Start Wrapper Action */
+.wrapper-action
+{
+    position: relative;
+    right: 270px;
+    width: calc(100% - 270px );
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.wrapper-action.none 
+{
+    right: 0px;
+}
+/* End Wrapper Action */
+
+/* employee table */
+.wrapper-action .content .employees {
+    width: 880px;
+    padding: 0px 10px;
+    margin: 40px auto;
+    background-color: #ffff;
+    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 32%);
+    border-radius: 4px;
+}
+.wrapper-action .content .employees .employees-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.wrapper-action .content .employees .employees-table th{
+    padding: 18px 0px 10px;
+    border-bottom: 1px solid #eee;
+    color: #6f6f6f;
+}
+.wrapper-action .content .employees .employees-table td {
+    padding: 7px 15px;
+    color: #6f6f6f;
+}
+.wrapper-action .content .employees .employees-table tr:nth-child(odd) td {
+    background-color: #f9f9f9;
+}
+.wrapper-action .content .employees .employees-table  td .btn{
+    display: inline-block;
+    padding: 0.35rem 0.30rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 15px;
+    text-align: center;;
+}
+.wrapper-action .content .employees .employees-table td .btn-edit {
+    color: #0075ff;
+    font-weight: bold;
+}
+.wrapper-action .content .employees .employees-table td .btn-delete {
+    color: #f44336;
+    font-weight: bold   ;
+}
+.wrapper-action .content .employees .btn-add {
+    color: #0075ff;
+    text-decoration: none;
+    margin-left: 10px;
+    display: block;
+    padding: 19px 6px;
+    border-top: 1px solid #eee;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* add employee view */
+
+.wrapper-action .content .add-employee {
+    width: 420px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 50px auto;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0px 0px 8px rgb(0 0 0 / 41%);
+    overflow: hidden;
+}
+.wrapper-action .content .add-employee .title {
+    color: #6f6f6f;
+    font-weight: bold;
+    font-family: tahoma;
+    margin: 33px 0px 26px;
+
+}
+.wrapper-action .content .add-employee .add-form .input-form{
+    display: block;
+    padding: 10px 5px;
+    width: 100%;
+    margin-bottom: 20px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+    color: #999;
+
+}
+.wrapper-action .content .add-employee .add-form .btn-submit {
+    color: #fff;
+    background-color: #0075ff;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    margin: 28px 0px;
+    font-size: 17px;
+}
+
+.footer {
+	width: 100%;
+	padding: 15px;
+    position: absolute;
+    bottom: 0px;
+	background-color: #212224;
+	color: #fff;
+}

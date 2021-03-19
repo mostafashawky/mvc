@@ -1,0 +1,1 @@
+<h1>this is default index</h1>
