@@ -78,9 +78,7 @@ body
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
-.header .bread-crumb-container {
-    float: right;
-}
+
 .header .bread-crumb {
     display: inline-block;
     margin-right: 9px;
@@ -91,9 +89,7 @@ body
     font-size: 1.2rem;
     font-weight: bold;
 }
-.header .notification {
-    float: left;
-}
+
 .header .icon-notification {
     display: inline-block;
     padding-top: 9px
@@ -111,6 +107,7 @@ body
     border: 1px solid #bdbdbd;
     padding: 6px;
     cursor: pointer;
+    float: left;
 }
 
 /* Start Sidebar */

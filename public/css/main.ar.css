@@ -47,7 +47,29 @@ body
 {
     list-style: none;
 }
-
+.form-group 
+{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.input-form {
+    border: 1px solid #dadada;
+    padding: 0.6rem 0.7rem;
+    border-radius: 0.3rem;
+    outline: none;
+    display: block;
+}
+.input-form:hover,
+.input-form:focus
+{
+    box-shadow: 0px 0px 10px #0075ff57;
+}
+.label-form {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #888;
+    font-weight: bold;
+}
 /* End FrameWord Css */
 
 /* Start Not Found File Css */
@@ -96,6 +118,7 @@ body
 }
 .header .icon-notification {
     display: inline-block;
+    float: left;
     padding-top: 9px;
 }
 .header .icon-notification .fa{
@@ -105,12 +128,12 @@ body
     cursor: pointer;
 }
 .header .admin {
-    display: inline-block;
     color: #fff;
     font-weight: bold;
     border: 1px solid #bdbdbd;
     padding: 6px;
     cursor: pointer;
+    float: left;
 }
 
 /* Start Sidebar */
@@ -130,7 +153,6 @@ body
     -webkit-transition: all 0.5ms;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
-    
 }
 .sidebar.none 
 {
@@ -185,6 +207,16 @@ body
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     transition: all 0.2s;
+    position: relative;
+}
+.sidebar .sidebar-links > ul > .link:hover::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    right: 19px;
+    background-color: #3a485d;
+    top: 0px;
 }
 .sidebar .sidebar-links .link:hover
 {
@@ -224,11 +256,12 @@ body
 .wrapper-action
 {
     position: relative;
-    right: 270px;
-    width: calc(100% - 270px );
+    right: 250px;
+    width: calc(100% - 250px );
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
+    padding: 1rem 1.5rem;
 }
 .wrapper-action.none 
 {
@@ -236,106 +269,194 @@ body
 }
 /* End Wrapper Action */
 
-/* employee table */
-.wrapper-action .content .employees {
-    width: 880px;
-    padding: 0px 10px;
-    margin: 40px auto;
-    background-color: #ffff;
-    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 32%);
-    border-radius: 4px;
+/* Group  */
+.wrapper-action .group
+{
+    margin: 1.8rem 0px;
 }
-.wrapper-action .content .employees .employees-table {
+.wrapper-action .group .table-group
+{
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
+    background: #fff;
+    border: 1px solid #d6d5d5;
 }
-.wrapper-action .content .employees .employees-table th{
-    padding: 18px 0px 10px;
-    border-bottom: 1px solid #eee;
-    color: #6f6f6f;
-}
-.wrapper-action .content .employees .employees-table td {
-    padding: 7px 15px;
-    color: #6f6f6f;
-}
-.wrapper-action .content .employees .employees-table tr:nth-child(odd) td {
-    background-color: #f9f9f9;
-}
-.wrapper-action .content .employees .employees-table  td .btn{
-    display: inline-block;
-    padding: 0.35rem 0.30rem;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 15px;
-    text-align: center;;
-}
-.wrapper-action .content .employees .employees-table td .btn-edit {
-    color: #0075ff;
+.wrapper-action .group .table-group th 
+{
+    width: 50%;
+    padding: 0.8rem 1rem;
+    text-align: right;
+    color: #909090;
     font-weight: bold;
+    background: #24344b;
+    color: #fff;
+    border-left: 1px solid #8a8a8a
 }
-.wrapper-action .content .employees .employees-table td .btn-delete {
-    color: #f44336;
-    font-weight: bold   ;
+.wrapper-action .group .table-group td
+{
+    padding: 0.8rem 1rem;
 }
-.wrapper-action .content .employees .btn-add {
-    color: #0075ff;
-    text-decoration: none;
-    margin-left: 10px;
+
+/* Default Privilege Style */
+.wrapper-action .privilege
+{
+    margin: 1.8rem 0px;
+    width: 90%;
+}
+.wrapper-action .privilege-add-btn
+{
     display: block;
-    padding: 19px 6px;
-    border-top: 1px solid #eee;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
-/* add employee view */
-
-.wrapper-action .content .add-employee {
-    width: 420px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin: 50px auto;
-    text-align: center;
-    background-color: #fff;
-    box-shadow: 0px 0px 8px rgb(0 0 0 / 41%);
-    overflow: hidden;
-}
-.wrapper-action .content .add-employee .title {
-    color: #6f6f6f;
-    font-weight: bold;
-    font-family: tahoma;
-    margin: 33px 0px 26px;
-
-}
-.wrapper-action .content .add-employee .add-form .input-form{
-    display: block;
-    padding: 10px 5px;
-    width: 100%;
-    margin-bottom: 20px;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid #eee;
-    font-weight: bold;
-    color: #999;
-
-}
-.wrapper-action .content .add-employee .add-form .btn-submit {
+    width: 140px;
+    margin-right: auto;
     color: #fff;
     background-color: #0075ff;
-    border: none;
-    width: 100%;
-    padding: 10px;
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 1.2rem
+}
+.wrapper-action .privilege .table-privilege
+{
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #d6d5d5;
+    width: 80%;
+    margin: auto;
+}
+.wrapper-action .privilege .table-privilege th 
+{
+    width: 33%;
+    padding: 0.8rem 1rem;
+    text-align: right;
+    color: #909090;
+    font-weight: bold;
+    background: #24344b;
+    color: #fff;
+    border-left: 1px solid #8a8a8a
+}
+.wrapper-action .privilege .table-privilege td
+{
+    padding: 0.8rem 1rem;
+    border: 1px solid #d4d4d4;
+    color: #565656;
+    font-weight: bold;
+}
+.wrapper-action .privilege .table-privilege td .fa
+{
+    margin: 0px 0.3rem;
+    font-size: 1.2rem;
     cursor: pointer;
-    margin: 28px 0px;
-    font-size: 17px;
+}
+.wrapper-action .privilege .table-privilege td .fa.edit
+{
+    color: #0075ff;
+}
+.wrapper-action .privilege .table-privilege td .fa.delete   
+{
+    color: #f44336;
 }
 
-.footer {
-	width: 100%;
-	padding: 15px;
-    position: absolute;
-    bottom: 0px;
-	background-color: #212224;
-	color: #fff;
+/* Add Privilege */
+.wrapper-action .privilege-add
+{
+    padding: 1.3rem 1.6rem;
+}
+.wrapper-action .form-privilege-add
+{
+    padding: 1.5rem;
+    background-color: #fff;
+    width: 70%;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+}
+.wrapper-action .form-privilege-add {
+    padding: 1.5rem;
+    background-color: #fff;
+    width: 70%;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+}
+.wrapper-action .form-privilege-add .input-form 
+{
+    width: 80%;
+    background: #f2f7f9;
+    font-weight: bold;
+}
+.wrapper-action .form-privilege-add .btn-submit 
+{
+    padding: 0.8rem 1.3rem;
+    background-color: #03a9f4;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 19%);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Edit Privielege */
+.wrapper-action .privilege-edit
+{
+    padding: 1.3rem 1.6rem;
+}
+.wrapper-action .form-privilege-edit
+{
+    padding: 1.5rem;
+    background-color: #fff;
+    width: 70%;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+}
+.wrapper-action .form-privilege-edit {
+    padding: 1.5rem;
+    background-color: #fff;
+    width: 70%;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+}
+.wrapper-action .form-privilege-edit .input-form 
+{
+    width: 80%;
+    background: #f2f7f9;
+    font-weight: bold;
+}
+.wrapper-action .form-privilege-edit .btn-submit 
+{
+    padding: 0.8rem 1.3rem;
+    background-color: #03a9f4;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 19%);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Add Group */
+.wrapper-action .group
+{
+    background-color: #fff;
+    padding: 1rem ;
+    width: 60%;
+    border: 1px solid #d2d0d0;
+    border-radius: 0.5rem;
+}
+.wrapper-action .group .label-form
+{
+    min-width: 20%;
+}
+.wrapper-action .group .input-form {
+    width: 70%;
+}
+.wrapper-action .group .submit-btn {
+    color: #fff;
+    background-color: #0073f9;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+    font-size: 1.1rem;
 }

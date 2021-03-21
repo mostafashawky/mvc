@@ -21,7 +21,7 @@
 				<a class="toggle-menu" href="#"><i class="fa fa-user"></i> <?= $sidebar_links_user?> </a>
 				<ul class="menu-group list-unstyled">
 					<li class="link">
-						<a href="#"><i class="fa fa-key"></i> <?= $sidebar_links_privilege ?></a>
+						<a href="/privilege"><i class="fa fa-key"></i> <?= $sidebar_links_privilege ?></a>
 					</li>
 					<li class="link">
 						<a href="#"><i class="fa fa-users"></i><?= $sidebar_links_group?></a>
