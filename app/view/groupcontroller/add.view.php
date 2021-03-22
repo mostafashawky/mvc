@@ -1,4 +1,4 @@
-<div class="group">
+<div class="group-add">
     <form method="post" class="group-form">
         <div class="form-group">
             <label class="label-form">اسم المجموعة</label>

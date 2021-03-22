@@ -9,7 +9,7 @@ use MVC\LIB\ValidateinputFeature;
 use MVC\LIB\RedirectPageFeature;
 class GroupController extends AbstractController
 {
-    use RedirectPageFeature;
+    use RedirectPageFeature;        
     use ValidateinputFeature;
     public function defaultAction()
     {

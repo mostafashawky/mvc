@@ -8,27 +8,27 @@
 	</div>
 	<div class="sidebar-links">
 		<ul class="links list-unstyled">
-			<li class="link">
+			<li class="link <?= $this->checkActive('index')?>">
 				<a  href = "/index"><i class="fa fa-home"></i> <?= $sidebar_links_homepage ?> </a> 
 			</li>
-			<li class="link">
+			<li class="link <?= $this->checkActive('supplier')?>">
 				<a  href = "/index"><i class="fa fa-user-circle"></i> <?= $sidebar_links_supplier ?></a> 
 			</li>
-			<li class="link">
+			<li class="link <?= $this->checkActive('client')?>">
 				<a  href = "/index"><i class="fa fa-user"></i> <?= $sidebar_links_client ?></a> 
 			</li>
-			<li class="link">
-				<a class="toggle-menu" href="#"><i class="fa fa-user"></i> <?= $sidebar_links_user?> </a>
+			<li class="link <?= $this->checkActive('privilege')?>">
+				<a class="toggle-menu" ><i class="fa fa-user"></i> <?= $sidebar_links_user?> </a>
 				<ul class="menu-group list-unstyled">
-					<li class="link">
+					<li class="link <?= $this->checkActive('privilege')?>">
 						<a href="/privilege"><i class="fa fa-key"></i> <?= $sidebar_links_privilege ?></a>
 					</li>
-					<li class="link">
-						<a href="#"><i class="fa fa-users"></i><?= $sidebar_links_group?></a>
+					<li class="link <?= $this->checkActive('group') ?> ">
+						<a href="/group"><i class="fa fa-users"></i><?= $sidebar_links_group?></a>
 					</li>
 				</ul> 
 			</li>
-			<li class="link">
+			<li class="link <?= $this->checkActive('store')?>">
 				<a class="toggle-menu" href="#"><i class="fa fa-shopping-cart"></i><?= $sidebar_links_store?></a> 
 				<ul class="menu-group list-unstyled">
 					<li class="link">
@@ -39,7 +39,7 @@
 					</li>
 				</ul> 
 			</li>
-			<li class="link">
+			<li class="link <?= $this->checkActive('report')?>" >
 				<a href="/language"> <i class="fa fa-file"></i> <?= $sidebar_links_report ?>  </a> 
 			</li>
 			<li class="link">

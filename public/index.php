@@ -18,6 +18,7 @@ $session = new mysession();
 $session->startSession();
     
 
+
 // Require Template Data Config
 $configTemplate = require_once APP_PATH . DS . 'config'. DS . 'configtemplates.php';  
 

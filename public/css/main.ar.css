@@ -218,6 +218,10 @@ body
     background-color: #3a485d;
     top: 0px;
 }
+.sidebar .sidebar-links .link.link.selected
+{
+    background-color: #20385a;
+}
 .sidebar .sidebar-links .link:hover
 {
     background-color: #20385a;
@@ -242,6 +246,7 @@ body
     -moz-transition: all 0.2s;
     transition: all 0.2s;
     height: 0px;
+    
 }
 .sidebar .sidebar-links .links .link .menu-group.active
 {
@@ -433,9 +438,146 @@ body
     font-weight: bold;
     cursor: pointer;
 }
+/* Default Group  */
+ .wrapper-action .group-default
+{
+    margin: 1.8rem 0px;
+    width: 90%;
+}
+.wrapper-action .group-add-default
+{
+    display: block;
+    width: 140px;
+    margin-right: auto;
+    color: #fff;
+    background-color: #0075ff;
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 1.2rem
+}
+.wrapper-action .table-group
+{
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #d6d5d5;
+    width: 80%;
+    margin: auto;
+}
+.wrapper-action .group-add .table-group th 
+{
+    width: 33%;
+    padding: 0.8rem 1rem;
+    text-align: right;
+    color: #909090;
+    font-weight: bold;
+    background: #24344b;
+    color: #fff;
+    border-left: 1px solid #8a8a8a
+}
+.wrapper-action .group-add  .table-group td
+{
+    padding: 0.8rem 1rem;
+    border: 1px solid #d4d4d4;
+    color: #565656;
+    font-weight: bold;
+}
+.wrapper-action .group-add  .table-group td .fa
+{
+    margin: 0px 0.3rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.wrapper-action .group-add  .table-group td .fa.edit
+{
+    color: #0075ff;
+}
+.wrapper-action .group-add  .table-group td .fa.delete   
+{
+    color: #f44336;
+}
+
+/* Add Privilege */
+.wrapper-action .privilege-add
+{
+    padding: 1.3rem 1.6rem;
+}
+.wrapper-action .form-privilege-add
+{
+    padding: 1.5rem;
+    background-color: #fff;
+    width: 70%;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+}
+.wrapper-action .form-privilege-add {
+    padding: 1.5rem;
+    background-color: #fff;
+    width: 70%;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+}
+.wrapper-action .form-privilege-add .input-form 
+{
+    width: 80%;
+    background: #f2f7f9;
+    font-weight: bold;
+}
+.wrapper-action .form-privilege-add .btn-submit 
+{
+    padding: 0.8rem 1.3rem;
+    background-color: #03a9f4;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 19%);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Edit Privielege */
+.wrapper-action .privilege-edit
+{
+    padding: 1.3rem 1.6rem;
+}
+.wrapper-action .form-privilege-edit
+{
+    padding: 1.5rem;
+    background-color: #fff;
+    width: 70%;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+}
+.wrapper-action .form-privilege-edit {
+    padding: 1.5rem;
+    background-color: #fff;
+    width: 70%;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+}
+.wrapper-action .form-privilege-edit .input-form 
+{
+    width: 80%;
+    background: #f2f7f9;
+    font-weight: bold;
+}
+.wrapper-action .form-privilege-edit .btn-submit 
+{
+    padding: 0.8rem 1.3rem;
+    background-color: #03a9f4;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 19%);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 
 /* Add Group */
-.wrapper-action .group
+.wrapper-action .group-add
 {
     background-color: #fff;
     padding: 1rem ;
@@ -443,14 +585,14 @@ body
     border: 1px solid #d2d0d0;
     border-radius: 0.5rem;
 }
-.wrapper-action .group .label-form
+.wrapper-action .group-add .label-form
 {
-    min-width: 20%;
+    min-width: 30%;
 }
-.wrapper-action .group .input-form {
+.wrapper-action .group-add .input-form {
     width: 70%;
 }
-.wrapper-action .group .submit-btn {
+.wrapper-action .group-add .submit-btn {
     color: #fff;
     background-color: #0073f9;
     border: none;

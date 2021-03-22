@@ -11,8 +11,10 @@
  *      3- the language data         
  */
 namespace MVC\LIB;
+use MVC\LIB\ActiveFeature;
 class Template
 {
+    use ActiveFeature ;
     private $_actionPath;
     private $_dataModel;
     private $_dataTemplate;
@@ -90,6 +92,7 @@ class Template
                        exit('Sorry The File dosen\'t exist');  
                      }
                 } else {
+                    var_dump ($this->checkActive('privilege'));
                     require_once $this->_actionPath;
                 }
             }

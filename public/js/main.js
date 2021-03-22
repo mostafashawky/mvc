@@ -1,6 +1,7 @@
 //variable environment
 let toggleIcon = document.querySelector('#toggle');
 let sidebar = document.querySelector("#sidebar");
+let link = document.querySelectorAll('.link');
 let toggleMenu = Array.from( document.querySelectorAll(".toggle-menu") );
 let toggleMenulist = document.querySelector(".toggle-menu + ul")
 let wrapperAction = document.querySelector(".wrapper-action");
@@ -19,6 +20,7 @@ toggleIcon.addEventListener('click', function(){
 
 	}	
 })
+
 toggleMenu.forEach( ( menu )=>{
 	menu.addEventListener('click', function(){
 		this.nextElementSibling.classList.toggle('active') 
