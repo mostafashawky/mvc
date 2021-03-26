@@ -25,8 +25,12 @@ class AbstractModel
         $stat = $database->databaseConnection()->prepare( $sql );
         $stat->bindParam( ":".static::$primaryKey."", $pk );
         $data = $stat->execute() ? $stat->fetchAll( \PDO::FETCH_CLASS, get_called_class() ) : false;
-        return array_shift( $data );
-
+        
+        // Check If The Fetched Object Not Empty 
+        if( !empty( $data ) ){
+            return array_shift( $data );
+        }
+        return false;
     }
     private function createParams()
     {
@@ -55,12 +59,22 @@ class AbstractModel
 
         }
     }
-    public function insertData( $database )
+    public function insertData( $database , $pk = false )
     {
+        // If Pk Paramater Is True Then We Need To Get Last Insert Id
         $sql = "INSERT INTO ". static::$tableName ." SET ".self::createParams()."";
         $stat = $database->databaseConnection()->prepare( $sql );
         self::bindParams( $stat );
-        return $stat->execute();
+        if( $stat->execute() ){
+            if( $pk == true ) {
+                // After Execute The Insert Data Into Database Then Get The Last Insert Id
+                $this->{static::$primaryKey} =  $database->databaseConnection()->lastInsertId();
+                return true;
+            } 
+            return true;
+           
+        } 
+        return false;
     }
     public function updateData( $database )
     {
@@ -69,17 +83,17 @@ class AbstractModel
         self::bindParams($stat );
         return $stat->execute();
     }
-    public  function deleteData(  $database, $id )
+    public  function deleteData(  $database )
     {
         
         $sql = "DELETE FROM ".static::$tableName." WHERE ".static::$primaryKey." =:".static::$primaryKey."";
         $stat = $database->databaseconnection()->prepare( $sql );
-        $stat->bindParam( ":".static::$primaryKey, $id );
+        $stat->bindParam( ":".static::$primaryKey, $this->{static::$primaryKey} );
         return $stat->execute();
     }
-    public function save(  $database )
+    public function save(  $database, $pk = false )
     {
-        return $this->{static::$primaryKey} == "" ? $this->insertData( $database ) : $this->updateData( $database );
+        return $this->{static::$primaryKey} == "" ? $this->insertData( $database, $pk ) : $this->updateData( $database );
     }
 
 }

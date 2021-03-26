@@ -1,6 +1,6 @@
 <?php
 
-namespace MVC\LIB;
+namespace MVC\LIB\template;
 
 trait ActiveFeature
 {

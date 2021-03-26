@@ -1,12 +1,11 @@
 <div class="privilege-edit">
+    <h4 class='title'>تعديل الصلاحية</h4>
     <form method="post" class="form-privilege-edit">
         <div class="form-group">
-            <label class="label-form">اسم الترخيص</label>
-            <input class="input-form" name="privilege_name" autocomplete="off" value="<?= $privilege->privilege_name?>">
+            <input class="input-form-line" name="privilege_name" autocomplete="off" value="<?= $privilege->privilege_name?>">
         </div>
         <div class="form-group">
-            <label class="label-form">رابط الترخيص</label>
-            <input class="input-form" name="privilege_url" autocomplete="off" value="<?= $privilege->privilege_url?>">
+            <input class="input-form-line" name="privilege_url" autocomplete="off" value="<?= $privilege->privilege_url?>">
         </div>
         <div class="form-group">
             <input type="submit" class="btn-submit" value="تعديل الترخيص">

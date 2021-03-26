@@ -9,7 +9,8 @@ class GroupModel extends AbstractModel {
 
     public $group_id;
     public $group_name;
-    public static $tableName = 'app_group';
+    public static $tableName   = 'app_users_group';
+    public static $primaryKey  = 'group_id';
     public static $tableSchema = [
         'group_name' => PARENT::DATATYPE_STR,
     ];

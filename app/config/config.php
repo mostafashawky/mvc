@@ -31,6 +31,7 @@ define('DRIVER_CONNECT', 'mysql:' );
 $dbs = DRIVER_CONNECT.'host='.HOST_NAME.';dbname='.DB_NAME; 
 $options = array(
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
 );
 try {
     $connection = new PDO( $dbs, USER_NAME, PASSWORD, $options );

@@ -24,6 +24,9 @@ class PrivilegeController extends AbstractController
         // Load Template Translation File
         $this->_language->loadtranslationFile('template|common');
 
+        // Load Translation File Of Default Action
+        $this->_language->loadtranslationFile('privilege|default');
+
         $this->_view();
     }
     public function addAction()
@@ -47,7 +50,8 @@ class PrivilegeController extends AbstractController
         }
 
         // Load Template Translation File
-        $this->_language->loadtranslationFile('template|common');   
+        $this->_language->loadtranslationFile('template|common');  
+        $this->_language->loadtranslationFile('privilege|add');
         $this->_view();
     }
     public function editAction()
@@ -55,18 +59,24 @@ class PrivilegeController extends AbstractController
         // Get The Id Of The Privilete We Want To Edit  
         $id = $this->filterInt( $this->_params[0]);
         
+        
         // Get The Privilege That We Want To Edit
         $privilege = PrivilegeModel::getbypk( $this->_database, $id );
 
+        // Check If The Returned Value From Privilege Model Not Equal False
+        if( false == $privilege ){
+            $this->redirect('/privilege');
+        }
+
         // Provide Data Array With The Privilege data
         $this->_data['privilege'] = $privilege;
-        
+
         // Check If The Request Equal To Post Request To Handle The Data Send By User
         if( $_SERVER['REQUEST_METHOD'] == 'POST' ){
             $privilegeName = $_POST['privilege_name'];
             $privilegeUrl  = $_POST['privilege_url'];
             
-            // Reset The Privilege Data Object
+            // Reset The Privilege Data Object 
             $privilege->privilege_name = $this->filterStr( $privilegeName );
             $privilege->privilege_url  = $this->filterStr( $privilegeUrl );
 
@@ -75,7 +85,8 @@ class PrivilegeController extends AbstractController
             $privilege->save( $this->_database ) ? $this->redirect('/privilege') : false;
         }
         // Load Template Translation File
-        $this->_language->loadtranslationFile('template|common');   
+        $this->_language->loadtranslationFile('template|common');
+        $this->_language->loadtranslationFile('privilege|edit');   
         $this->_view();
     }
     public function deleteAction( )
@@ -87,7 +98,7 @@ class PrivilegeController extends AbstractController
         $privilege = PrivilegeModel::getbypk( $this->_database, $id );
 
         // Delete This Privilege Object
-        $privilege->deleteData( $this->_database, $id ) ? $this->redirect('/privilege') : false;
+        $privilege->deleteData( $this->_database ) ? $this->redirect('/privilege') : false;
         
     }
 }

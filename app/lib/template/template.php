@@ -1,25 +1,19 @@
 <?php
-/* 
- * Author: Mostafa Shawky
- * Email: mostafa.shawky47@mail.ru
- * FileName: Template
- * Description:
- *  --Template Object is responsibe for handling the application template
- *  --The propert its contain 
- *      1- view action path 
- *      2- logic data
- *      3- the language data         
- */
-namespace MVC\LIB;
-use MVC\LIB\ActiveFeature;
+
+namespace MVC\LIB\template;
+
+
 class Template
 {
+    // ActiveFeature Library To Provice The Required Link With Active Class
     use ActiveFeature ;
+
     private $_actionPath;
     private $_dataModel;
     private $_dataTemplate;
     public function __construct( $holdDataTemplate )
     {
+        
         // Template Data
         $this->_dataTemplate = $holdDataTemplate;
     }
@@ -92,7 +86,6 @@ class Template
                        exit('Sorry The File dosen\'t exist');  
                      }
                 } else {
-                    var_dump ($this->checkActive('privilege'));
                     require_once $this->_actionPath;
                 }
             }

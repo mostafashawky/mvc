@@ -6,7 +6,7 @@ body
 {
 	font-family: 'Tajawal', sans-serif;
 	background-color: #f0f6f9;
-	font-size: 15px;
+	font-size: 14px;
     direction: rtl;
 }
 /* FrameWork Css Classes */
@@ -37,11 +37,19 @@ body
 }
 .float-left 
 {
-    float: right;
+    float: left;
 }
 .float-right 
 {
-    float: left;
+    float: right;
+}
+.text-align-right
+{
+    text-align: right;
+}
+.text-align-left 
+{
+    text-align: left;
 }
 .list-unstyled 
 {
@@ -51,6 +59,7 @@ body
 {
     margin-top: 1rem;
     margin-bottom: 1rem;
+    position: relative;
 }
 .input-form {
     border: 1px solid #dadada;
@@ -70,6 +79,40 @@ body
     color: #888;
     font-weight: bold;
 }
+::placeholder 
+{
+    font-weight: 500;
+    color: #ccc;
+}
+.d-inline-block
+{
+    display: inline-block;
+}
+.input-form-line
+{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #dadada;
+    font-weight: bold;
+    display: block;
+    outline: none;
+    background: transparent;
+    color: #5f5f5f;
+    padding: 0.85rem 0px;
+    font-size: 14px;
+}
+.input-form-line:hover,
+.input-form-line:focus
+{
+    border-bottom: 1px solid #0075ff;
+}
+.title
+{
+    color: #545454;
+    margin-bottom: 4rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
 /* End FrameWord Css */
 
 /* Start Not Found File Css */
@@ -83,8 +126,8 @@ body
 .header 
 {
     background: #0073f9;
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
 }
 .header .toggle
 {
@@ -100,25 +143,26 @@ body
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
-.header .bread-crumb-container {
-    float: right;
-}
-.header .bread-crumb {
+.header .bread-crumb
+{
     display: inline-block;
     margin-right: 9px;
+    padding-top: 0.6rem;
 }
-.header .bread-crumb a {
+.header .bread-crumb span
+{
     color: #fff;
-    text-decoration: none;
-    font-size: 1.2rem;
     font-weight: bold;
 }
-.header .notification {
-    float: left;
+.header .bread-crumb a 
+{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
 }
 .header .icon-notification {
     display: inline-block;
-    float: left;
     padding-top: 9px;
 }
 .header .icon-notification .fa{
@@ -133,7 +177,7 @@ body
     border: 1px solid #bdbdbd;
     padding: 6px;
     cursor: pointer;
-    float: left;
+    display: inline-block;
 }
 
 /* Start Sidebar */
@@ -238,7 +282,7 @@ body
 {
 	margin-left: 5px;
 } 
-.sidebar .sidebar-links .links .link .menu-group
+.sidebar .sidebar-links .links .link .submenu
 {
     transform: scale(1,0);
     transform-origin: top center;
@@ -248,12 +292,16 @@ body
     height: 0px;
     
 }
-.sidebar .sidebar-links .links .link .menu-group.active
+.sidebar .sidebar-links .links .link .submenu.active
 {
     -webkit-transform: scale(1,1) ;
     -moz-transform: scale( 1,1 );
     transform: scale( 1, 1) ;
-    height: 80px;
+    height: 130px;
+}
+.sidebar .sidebar-links .links .link .submenu .link:hover a
+{
+    text-decoration: underline;
 }
 /* End SideBar */
 
@@ -271,10 +319,11 @@ body
 .wrapper-action.none 
 {
     right: 0px;
+    width: 100%;
 }
 /* End Wrapper Action */
 
-/* Group  */
+/* Group  Default */
 .wrapper-action .group
 {
     margin: 1.8rem 0px;
@@ -301,18 +350,17 @@ body
 {
     padding: 0.8rem 1rem;
 }
+/* End Default Group */
 
 /* Default Privilege Style */
 .wrapper-action .privilege
 {
     margin: 1.8rem 0px;
-    width: 90%;
 }
 .wrapper-action .privilege-add-btn
 {
     display: block;
     width: 140px;
-    margin-right: auto;
     color: #fff;
     background-color: #0075ff;
     text-decoration: none;
@@ -320,32 +368,43 @@ body
     font-weight: bold;
     text-align: center;
     overflow: hidden;
-    margin-bottom: 1.2rem
+    margin-bottom: 2rem;
+    margin-right: auto;
+    margin-left: 20px;
 }
 .wrapper-action .privilege .table-privilege
 {
     border-collapse: collapse;
     background: #fff;
     border: 1px solid #d6d5d5;
-    width: 80%;
+    width: 82%;
     margin: auto;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    box-shadow: 0px 0px 16px rgb(88 96 123 / 20%);
+}
+.wrapper-action .privilege .table-privilege th:first-child
+{
+    width: 80%;
 }
 .wrapper-action .privilege .table-privilege th 
 {
-    width: 33%;
     padding: 0.8rem 1rem;
-    text-align: right;
     color: #909090;
     font-weight: bold;
     background: #24344b;
     color: #fff;
-    border-left: 1px solid #8a8a8a
+}
+.wrapper-action .privilege .table-privilege tr:nth-child(odd)
+{
+    background-color: #f0f6f9
 }
 .wrapper-action .privilege .table-privilege td
 {
     padding: 0.8rem 1rem;
-    border: 1px solid #d4d4d4;
-    color: #565656;
+    color: #8c8c8c;
     font-weight: bold;
 }
 .wrapper-action .privilege .table-privilege td .fa
@@ -362,243 +421,205 @@ body
 {
     color: #f44336;
 }
+/* End Default Privilege */
 
 /* Add Privilege */
 .wrapper-action .privilege-add
 {
-    padding: 1.3rem 1.6rem;
+    padding: 3.5rem 1.8rem;
+    width: 430px;
+    margin: 5rem auto;
+    background: #fff;
+    box-shadow: 0px 0px 16px rgb(88 96 123 / 20%);
 }
-.wrapper-action .form-privilege-add
+
+.wrapper-action .privilege-add .form-group
 {
-    padding: 1.5rem;
-    background-color: #fff;
-    width: 70%;
-    border: 1px solid #e4e4e4;
-    border-radius: 0.5rem;
+    margin-bottom: 2rem;
 }
-.wrapper-action .form-privilege-add {
-    padding: 1.5rem;
-    background-color: #fff;
-    width: 70%;
-    border: 1px solid #e4e4e4;
-    border-radius: 0.5rem;
-}
-.wrapper-action .form-privilege-add .input-form 
-{
-    width: 80%;
-    background: #f2f7f9;
-    font-weight: bold;
-}
+
 .wrapper-action .form-privilege-add .btn-submit 
 {
-    padding: 0.8rem 1.3rem;
+    padding: 0.5rem 1.5rem;
     background-color: #03a9f4;
     border: 1px solid #e4e4e4;
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
     box-shadow: 0px 0px 10px rgb(0 0 0 / 19%);
     color: #fff;
     font-weight: bold;
     cursor: pointer;
+    width: 200px;
+    display: block;
+    font-size: 14px;
 }
 
 /* Edit Privielege */
 .wrapper-action .privilege-edit
 {
-    padding: 1.3rem 1.6rem;
-}
-.wrapper-action .form-privilege-edit
-{
-    padding: 1.5rem;
+    padding: 3.5rem 1.8rem;
     background-color: #fff;
-    width: 70%;
+    width: 40%;
     border: 1px solid #e4e4e4;
     border-radius: 0.5rem;
+    margin: 50px auto;
+    box-shadow: 0px 0px 16px rgb(88 96 123 / 20%);
 }
-.wrapper-action .form-privilege-edit {
-    padding: 1.5rem;
-    background-color: #fff;
-    width: 70%;
-    border: 1px solid #e4e4e4;
-    border-radius: 0.5rem;
-}
-.wrapper-action .form-privilege-edit .input-form 
+.wrapper-action .privilege-edit .form-group
 {
-    width: 80%;
-    background: #f2f7f9;
-    font-weight: bold;
+    margin-bottom: 2rem;    
 }
 .wrapper-action .form-privilege-edit .btn-submit 
 {
-    padding: 0.8rem 1.3rem;
-    background-color: #03a9f4;
+    padding: 0.4rem 1.3rem;
+    background-color: #0073f9;
     border: 1px solid #e4e4e4;
     border-radius: 0.5rem;
     box-shadow: 0px 0px 10px rgb(0 0 0 / 19%);
     color: #fff;
     font-weight: bold;
     cursor: pointer;
+    margin: 1rem 0px;
 }
+
 /* Default Group  */
  .wrapper-action .group-default
 {
-    margin: 1.8rem 0px;
-    width: 90%;
+    margin: 1.8rem auto;
 }
-.wrapper-action .group-add-default
-{
-    display: block;
-    width: 140px;
-    margin-right: auto;
-    color: #fff;
-    background-color: #0075ff;
-    text-decoration: none;
-    padding: 0.8rem 1rem;
-    font-weight: bold;
-    text-align: center;
-    overflow: hidden;
-    margin-bottom: 1.2rem
-}
+
 .wrapper-action .table-group
 {
     border-collapse: collapse;
     background: #fff;
-    border: 1px solid #d6d5d5;
     width: 80%;
     margin: auto;
+    border: 1px solid #babcbd;
+    box-shadow: 0px 0px 10px rgb(158 163 193 / 98%)
 }
-.wrapper-action .group-add .table-group th 
+.wrapper-action  .table-group th 
 {
-    width: 33%;
+    
     padding: 0.8rem 1rem;
     text-align: right;
     color: #909090;
     font-weight: bold;
     background: #24344b;
     color: #fff;
-    border-left: 1px solid #8a8a8a
 }
-.wrapper-action .group-add  .table-group td
+.wrapper-action  .table-group th:first-child
 {
-    padding: 0.8rem 1rem;
-    border: 1px solid #d4d4d4;
+    width: 80%;
+}
+.wrapper-action .table-group  tr:nth-child(odd)
+{
+    background-color: #f0f6f9;
+}
+.wrapper-action .table-group  td
+{       
+    padding: 1rem;
     color: #565656;
     font-weight: bold;
+    border-bottom: 1px solid #eee;
 }
-.wrapper-action .group-add  .table-group td .fa
+
+.wrapper-action .table-group td .fa
 {
     margin: 0px 0.3rem;
     font-size: 1.2rem;
     cursor: pointer;
 }
-.wrapper-action .group-add  .table-group td .fa.edit
+.wrapper-action .table-group td .fa.edit
 {
     color: #0075ff;
 }
-.wrapper-action .group-add  .table-group td .fa.delete   
+.wrapper-action .table-group td .fa.delete   
 {
     color: #f44336;
 }
 
-/* Add Privilege */
-.wrapper-action .privilege-add
+/* add group */
+.wrapper-action .title
 {
-    padding: 1.3rem 1.6rem;
+    text-align: right;
+    margin: 1rem 0px 3rem;
 }
-.wrapper-action .form-privilege-add
-{
-    padding: 1.5rem;
-    background-color: #fff;
-    width: 70%;
-    border: 1px solid #e4e4e4;
-    border-radius: 0.5rem;
-}
-.wrapper-action .form-privilege-add {
-    padding: 1.5rem;
-    background-color: #fff;
-    width: 70%;
-    border: 1px solid #e4e4e4;
-    border-radius: 0.5rem;
-}
-.wrapper-action .form-privilege-add .input-form 
-{
-    width: 80%;
-    background: #f2f7f9;
-    font-weight: bold;
-}
-.wrapper-action .form-privilege-add .btn-submit 
-{
-    padding: 0.8rem 1.3rem;
-    background-color: #03a9f4;
-    border: 1px solid #e4e4e4;
-    border-radius: 0.5rem;
-    box-shadow: 0px 0px 10px rgb(0 0 0 / 19%);
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* Edit Privielege */
-.wrapper-action .privilege-edit
-{
-    padding: 1.3rem 1.6rem;
-}
-.wrapper-action .form-privilege-edit
-{
-    padding: 1.5rem;
-    background-color: #fff;
-    width: 70%;
-    border: 1px solid #e4e4e4;
-    border-radius: 0.5rem;
-}
-.wrapper-action .form-privilege-edit {
-    padding: 1.5rem;
-    background-color: #fff;
-    width: 70%;
-    border: 1px solid #e4e4e4;
-    border-radius: 0.5rem;
-}
-.wrapper-action .form-privilege-edit .input-form 
-{
-    width: 80%;
-    background: #f2f7f9;
-    font-weight: bold;
-}
-.wrapper-action .form-privilege-edit .btn-submit 
-{
-    padding: 0.8rem 1.3rem;
-    background-color: #03a9f4;
-    border: 1px solid #e4e4e4;
-    border-radius: 0.5rem;
-    box-shadow: 0px 0px 10px rgb(0 0 0 / 19%);
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-
-/* Add Group */
 .wrapper-action .group-add
 {
-    background-color: #fff;
-    padding: 1rem ;
-    width: 60%;
-    border: 1px solid #d2d0d0;
-    border-radius: 0.5rem;
+    width: 50%;
+    padding: 1.8rem 1.5rem;
 }
-.wrapper-action .group-add .label-form
+.wrapper-action .group-add .group-label
 {
-    min-width: 30%;
-}
-.wrapper-action .group-add .input-form {
-    width: 70%;
-}
-.wrapper-action .group-add .submit-btn {
-    color: #fff;
-    background-color: #0073f9;
-    border: none;
-    outline: none;
+    display: inline-block;
+    color: #828282;
     font-weight: bold;
-    padding: 0.5rem 1.2rem;
-    cursor: pointer;
-    font-size: 1.1rem;
+    width: 100%;
+    font-size: 1rem;
+
 }
+.wrapper-action .group-add .group-input
+{
+    display: inline-block;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #c7c7c7;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    background: transparent;
+}
+.wrapper-action .group-add  .label-privilege
+{
+    width: 100%;
+    display: block;
+    padding: 0.30rem 0px; 
+}
+.wrapper-action .group-add .checkbox .customize-checkbox
+{
+    content: '';
+    position: absolute;
+    width: 21px;
+    height: 19px;
+    text-align: center;
+    border: 1px solid #bbb6b6;
+    cursor: pointer;
+}
+
+.wrapper-action .group-add .checkbox .checkbox-privilege
+{
+    visibility: hidden;
+    position: absolute;
+    width: 21px;
+    height: 21px;
+}
+.wrapper-action .group-add .checkbox .checkbox-privilege:checked + .customize-checkbox::after
+{
+    content: "\f00c";
+    font-family: fontAwesome;
+    background-color: #0075ff;
+    color: #fff;
+    width: 105%;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.wrapper-action .group-add .label-privilege-name
+{
+    display: inline-block;
+    margin-right: 2rem;
+    cursor: pointer;
+    color: #888888;
+    font-weight: bold;
+}
+.wrapper-action .group-add .submit-btn
+{
+    color: #fff;
+    background-color: #0075ff;
+    padding: 0.5rem 1.5rem;
+    outline: none;
+    border: none;
+    display: block;
+    margin: 3.5rem auto 0px 0px;
+    cursor: pointer;
+    font-weight: bold;

@@ -1,1 +1,1 @@
-<h1>this is default index</h1>
+<h1><?= $content ?></h1>

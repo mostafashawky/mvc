@@ -10,6 +10,7 @@
 
 namespace MVC\LIB;
 
+use MVC\LIB\template\Template;
 class FrontController {
     private $_controller = 'index';
     private $_action = 'default';

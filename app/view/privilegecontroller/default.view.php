@@ -1,11 +1,10 @@
 <div class="privilege">
-    <a href="/privilege/add" class="privilege-add-btn">اضافه ترخيص <i class="fa fa-plus"></i></a>
+    <a href="/privilege/add" class="privilege-add-btn"><?= $privilege_add?> <i class="fa fa-plus"></i></a>
     <table class="table-privilege"> 
         <thead>
             <tr>
-                <th>اسم الترخيص</th>
-                <th>رابط الترخيص</th>
-                <th>التحكم</th>
+                <th class="text-align-right"><?= $table_privilege_name ?></th>
+                <th class="text-align-right"><?= $table_privilege_control?></th>
 
             </tr>
         </thead>
@@ -16,10 +15,9 @@
         ?>
             <tr>
                 <td> <?= $privilege->privilege_name ?></td>
-                <td> <?= $privilege->privilege_url ?> </td>
                 <td>
                     <a href="/privilege/edit/<?= $privilege->privilege_id ?>"><i class="edit fa fa-edit"></i></a>
-                    <a href="/privilege/delete/<?= $privilege->privilege_id ?>"><i class="delete fa fa-close"></i></a></td>
+                    <a href="/privilege/delete/<?= $privilege->privilege_id ?>"><i class="delete fa fa-trash"></i></a></td>
             </tr>   
         <?php
         endforeach;    

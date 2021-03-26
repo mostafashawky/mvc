@@ -37,17 +37,64 @@ body
 }
 .float-left 
 {
-    float: left;
+    float: right;
 }
 .float-right 
 {
-    float: right;
+    float: left;
+}
+.text-align-right
+{
+    text-align: left;
+}
+.text-align-left 
+{
+    text-align: right;
 }
 .list-unstyled 
 {
     list-style: none;
 }
-
+.form-group
+{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+::placeholder 
+{
+    font-weight: 500;
+    color: #ccc;
+}
+.d-inline-block
+{
+    display: inline-block;
+}
+.input-form-line
+{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #dadada;
+    font-weight: bold;
+    display: block;
+    outline: none;
+    background: transparent;
+    color: #5f5f5f;
+    padding: 0.85rem 0px;
+    font-size: 14px;
+}
+.input-form-line:hover,
+.input-form-line:focus
+{
+    border-bottom: 1px solid #0075ff;
+}
+.title
+{
+    color: #545454;
+    margin-bottom: 4rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
 /* End FrameWord Css */
 
 /* Start Not Found File Css */
@@ -61,8 +108,8 @@ body
 .header 
 {
     background: #0073f9;
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
 }
 .header .toggle
 {
@@ -78,42 +125,53 @@ body
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
-
-.header .bread-crumb {
+.header .bread-crumb
+{
     display: inline-block;
     margin-right: 9px;
+    padding-top: 0.6rem;
 }
-.header .bread-crumb a {
+.header .bread-crumb span
+{
     color: #fff;
-    text-decoration: none;
-    font-size: 1.2rem;
     font-weight: bold;
 }
-
+.header .bread-crumb a 
+{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
 .header .icon-notification {
     display: inline-block;
-    padding-top: 9px
+    padding-top: 9px;
 }
 .header .icon-notification .fa{
     color: #fff;
     font-size: 1.1rem;
-    margin-left: 10px;
+    margin: 0 10px;
     cursor: pointer;
 }
 .header .admin {
-    display: inline-block;
     color: #fff;
     font-weight: bold;
     border: 1px solid #bdbdbd;
     padding: 6px;
     cursor: pointer;
-    float: left;
+    display: inline-block;
 }
+
 
 /* Start Sidebar */
 .wrapper-action {
-	overflow: hidden;
-    height: 100vh;
+    position: relative;
+    right: 250px;
+    width: calc(100% - 250px );
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    padding: 1rem 1.5rem;
 }
 .sidebar 
 {
@@ -182,6 +240,20 @@ body
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     transition: all 0.2s;
+    position: relative;
+}
+.sidebar .sidebar-links > ul > .link:hover::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    right: 19px;
+    background-color: #3a485d;
+    top: 0px;
+}
+.sidebar .sidebar-links .link.link.selected
+{
+    background-color: #20385a;
 }
 .sidebar .sidebar-links .link:hover
 {
@@ -197,9 +269,9 @@ body
 }
 .sidebar .sidebar-links .links .link a .fa
 {
-	margin-left: 5px;
+    margin-right: 5px;
 } 
-.sidebar .sidebar-links .links .link .menu-group
+.sidebar .sidebar-links .links .link .submenu
 {
     transform: scale(1,0);
     transform-origin: top center;
@@ -207,14 +279,21 @@ body
     -moz-transition: all 0.2s;
     transition: all 0.2s;
     height: 0px;
+    
 }
-.sidebar .sidebar-links .links .link .menu-group.active
+.sidebar .sidebar-links .links .link .submenu.active
 {
     -webkit-transform: scale(1,1) ;
     -moz-transform: scale( 1,1 );
     transform: scale( 1, 1) ;
-    height: 80px;
+    height: 130px;
 }
+.sidebar .sidebar-links .links .link .submenu .link:hover a
+{
+    text-decoration: underline;
+}
+/* End SideBar */
+
 /* End SideBar */
 
 /* Start Wrapper Action */
@@ -230,109 +309,275 @@ body
 .wrapper-action.none 
 {
     left: 0px;
+    width: 100%;
 }
 /* End Wrapper Action */
 
-/* employee table */
-.wrapper-action .content .employees {
-    width: 880px;
-    padding: 0px 10px;
-    margin: 40px auto;
-    background-color: #ffff;
-    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 32%);
-    border-radius: 4px;
+/* Group  Default */
+.wrapper-action .group
+{
+    margin: 1.8rem 0px;
 }
-.wrapper-action .content .employees .employees-table {
+.wrapper-action .group .table-group
+{
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
+    background: #fff;
+    border: 1px solid #d6d5d5;
 }
-.wrapper-action .content .employees .employees-table th{
-    padding: 18px 0px 10px;
-    border-bottom: 1px solid #eee;
-    color: #6f6f6f;
-}
-.wrapper-action .content .employees .employees-table td {
-    padding: 7px 15px;
-    color: #6f6f6f;
-}
-.wrapper-action .content .employees .employees-table tr:nth-child(odd) td {
-    background-color: #f9f9f9;
-}
-.wrapper-action .content .employees .employees-table  td .btn{
-    display: inline-block;
-    padding: 0.35rem 0.30rem;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 15px;
-    text-align: center;;
-}
-.wrapper-action .content .employees .employees-table td .btn-edit {
-    color: #0075ff;
+.wrapper-action .group .table-group th 
+{
+    width: 50%;
+    padding: 0.8rem 1rem;
+    text-align: right;
+    color: #909090;
     font-weight: bold;
+    background: #24344b;
+    color: #fff;
+    border-left: 1px solid #8a8a8a
 }
-.wrapper-action .content .employees .employees-table td .btn-delete {
-    color: #f44336;
-    font-weight: bold   ;
+.wrapper-action .group .table-group td
+{
+    padding: 0.8rem 1rem;
 }
-.wrapper-action .content .employees .btn-add {
-    color: #0075ff;
-    text-decoration: none;
-    margin-left: 10px;
+/* End Default Group */
+
+/* Default Privilege Style */
+.wrapper-action .privilege
+{
+    margin: 1.8rem 0px;
+}
+.wrapper-action .privilege-add-btn
+{
     display: block;
-    padding: 19px 6px;
-    border-top: 1px solid #eee;
-    margin-bottom: 15px;
-    font-weight: bold;
-}
-
-/* add employee view */
-
-.wrapper-action .content .add-employee {
-    width: 420px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin: 50px auto;
-    text-align: center;
-    background-color: #fff;
-    box-shadow: 0px 0px 8px rgb(0 0 0 / 41%);
-    overflow: hidden;
-}
-.wrapper-action .content .add-employee .title {
-    color: #6f6f6f;
-    font-weight: bold;
-    font-family: tahoma;
-    margin: 33px 0px 26px;
-
-}
-.wrapper-action .content .add-employee .add-form .input-form{
-    display: block;
-    padding: 10px 5px;
-    width: 100%;
-    margin-bottom: 20px;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid #eee;
-    font-weight: bold;
-    color: #999;
-
-}
-.wrapper-action .content .add-employee .add-form .btn-submit {
+    width: 140px;
     color: #fff;
     background-color: #0075ff;
-    border: none;
-    width: 100%;
-    padding: 10px;
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    margin-right: auto;
+    margin-left: 20px;
+}
+.wrapper-action .privilege .table-privilege
+{
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #d6d5d5;
+    width: 82%;
+    margin: auto;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 22%)
+}
+.wrapper-action .privilege .table-privilege th:first-child
+{
+    width: 80%;
+}
+.wrapper-action .privilege .table-privilege th 
+{
+    padding: 0.8rem 1rem;
+    color: #909090;
+    font-weight: bold;
+    background: #24344b;
+    color: #fff;
+}
+.wrapper-action .privilege .table-privilege tr:nth-child(odd)
+{
+    background-color: #f0f6f9
+}
+.wrapper-action .privilege .table-privilege td
+{
+    padding: 0.8rem 1rem;
+    color: #8c8c8c;
+    font-weight: bold;
+}
+.wrapper-action .privilege .table-privilege td .fa
+{
+    margin: 0px 0.3rem;
+    font-size: 1.2rem;
     cursor: pointer;
-    margin: 28px 0px;
-    font-size: 17px;
+}
+.wrapper-action .privilege .table-privilege td .fa.edit
+{
+    color: #0075ff;
+}
+.wrapper-action .privilege .table-privilege td .fa.delete   
+{
+    color: #f44336;
+}
+/* End Default Privilege */
+
+/* Add Privilege */
+.wrapper-action .privilege-add
+{
+    padding: 3.5rem 1.8rem;
+    width: 430px;
+    margin: 5rem auto;
+    background: #fff;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+}
+.wrapper-action .privilege-add .privilege-title
+{
+    color: #888;
+    margin-bottom: 4rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.wrapper-action .privilege-add .form-group
+{
+    margin-bottom: 2rem;
 }
 
-.footer {
-	width: 100%;
-	padding: 15px;
-    position: absolute;
-    bottom: 0px;
-	background-color: #212224;
-	color: #fff;
+.wrapper-action .form-privilege-add .privilege-input
+{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #dadada;
+    font-weight: bold;
+    display: block;
+    outline: none;
+    background: transparent;
+    color: #5f5f5f;
+    padding: 0.60rem 0px;
+    font-size: 14px;
 }
+.wrapper-action .form-privilege-add .privilege-input:focus,
+.wrapper-action .form-privilege-add .privilege-input:hover
+{
+    border-bottom: 1px solid #0075ff;
+}
+.wrapper-action .form-privilege-add .btn-submit 
+{
+    padding: 0.5rem 1.5rem;
+    background-color: #03a9f4;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.3rem;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 19%);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    width: 200px;
+    display: block;
+    font-size: 14px;
+}
+
+/* Edit Privielege */
+.wrapper-action .privilege-edit
+{
+    padding: 3.5rem 1.8rem;
+    background-color: #fff;
+    width: 40%;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+    margin: 50px auto;
+    box-shadow: 0px 0px 16px rgb(88 96 123 / 20%);
+}
+.wrapper-action .privilege-edit .form-group
+{
+    margin-bottom: 2rem;    
+}
+.wrapper-action .form-privilege-edit .btn-submit 
+{
+    padding: 0.4rem 1.3rem;
+    background-color: #0073f9;
+    border: 1px solid #e4e4e4;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 19%);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 1rem 0px;
+}
+
+/* add group */
+.wrapper-action .title
+{
+    text-align: left;
+    margin: 1rem 0px 3rem;
+}
+.wrapper-action .group-add
+{
+    width: 50%;
+    padding: 1.8rem 1.5rem;
+}
+.wrapper-action .group-add .group-label
+{
+    display: inline-block;
+    color: #828282;
+    font-weight: bold;
+    width: 100%;
+    font-size: 1rem;
+
+}
+.wrapper-action .group-add .group-input
+{
+    display: inline-block;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #c7c7c7;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    background: transparent;
+}
+.wrapper-action .group-add  .label-privilege
+{
+    width: 100%;
+    display: block;
+    padding: 0.30rem 0px; 
+}
+.wrapper-action .group-add .checkbox .customize-checkbox
+{
+    content: '';
+    position: absolute;
+    width: 21px;
+    height: 19px;
+    text-align: center;
+    border: 1px solid #bbb6b6;
+    cursor: pointer;
+}
+
+.wrapper-action .group-add .checkbox .checkbox-privilege
+{
+    visibility: hidden;
+    position: absolute;
+    width: 21px;
+    height: 21px;
+}
+.wrapper-action .group-add .checkbox .checkbox-privilege:checked + .customize-checkbox::after
+{
+    content: "\f00c";
+    font-family: fontAwesome;
+    background-color: #0075ff;
+    color: #fff;
+    width: 105%;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.wrapper-action .group-add .label-privilege-name
+{
+    display: inline-block;
+    margin-left: 2rem;
+    cursor: pointer;
+    color: #888888;
+    font-weight: bold;
+}
+.wrapper-action .group-add .submit-btn
+{
+    color: #fff;
+    background-color: #0075ff;
+    padding: 0.5rem 1.5rem;
+    outline: none;
+    border: none;
+    display: block;
+    margin: 3.5rem 0px 0px auto;
+    cursor: pointer;
+    font-weight: bold;

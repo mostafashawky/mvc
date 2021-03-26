@@ -1,14 +1,14 @@
 <div class="header">
 	<div class="container-fluid">
-		 <div class="bread-crumb-container float-left">
+		 <div class="bread-crumb-container float-right">
 			<div class="toggle" id="toggle">
 				<i class="fa fa-exchange"></i>
 			</div>
 			<div class="bread-crumb">
-				<a href="#">الصفحة الرئيسية</a>
+				<?= $bread_crumb_title  ?>
 			</div>
 		</div>
-		<div class="notification float-right">
+		<div class="notification float-left">
 			<div class="icon-notification">
 				<i class="fa fa-bell"></i>
 				<i class="fa fa-envelope"></i>
