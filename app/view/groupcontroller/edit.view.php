@@ -1,9 +1,8 @@
-
 <div class="group-add">
 <h4 class="title"><?= $group_form_title ?></h4>
     <form method="post" class="group-form">
         <div class="form-group">
-            <input class="group-input" name="group_name" autocomplete="off" placeholder = "<?= $group_form_name ?>"required>
+            <input class="group-input" name="group_name" autocomplete="off" value="<?= $group->group_name?>" required>
         </div>
         <?php
         if( !empty($privileges) ):
@@ -12,7 +11,7 @@
         <div class="form-group">
             <label class="label-privilege" class="label-form">
             <div class="checkbox d-inline-block">
-                <input id="<?= $privilege->privilege_id ?>" class="checkbox-privilege" type="checkbox" name="privileges[]" value="<?= $privilege->privilege_id ?>" >
+                <input id="<?= $privilege->privilege_id ?>" class="checkbox-privilege" <?= in_array( $privilege->privilege_id, $privilegesIdstack ) ? "checked ": "" ?> type="checkbox" name="privileges[]" value="<?= $privilege->privilege_id ?>" >
                 <span class='customize-checkbox'></span>
                 <label class="label-privilege-name" for="<?= $privilege->privilege_id ?>"><?= $privilege->privilege_name ?> </label>
             </div>
@@ -24,7 +23,7 @@
         endif;   
         ?>
         <div class="form-group">
-            <input class="submit-btn" type="submit" value="اضافه المجموعه">
+            <input class="submit-btn" type="submit" value="<?= $group_form_editgroup ?>">
         </div>
     </form>
 </div>

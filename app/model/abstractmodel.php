@@ -17,7 +17,55 @@ class AbstractModel
        $data = $stat->execute() ? $stat->fetchAll( \PDO::FETCH_CLASS|\PDO::FETCH_PROPS_LATE,get_called_class() ) : false;
        return $data;
     }
-    //method to get the employee information from database
+    // Method To get Data With Column
+    public static function getbycolumn( $database, $column = [])
+    {   
+        // Extract The Column And Values
+        $keys          = array_keys( $column );
+        $values        = array_values( $column );
+
+        // Prepare Sql Statement
+        $sql = "select * from ".static::$tableName." where ";
+       
+        // Loop Thorugh key( Column )
+        for( $i = 0;  $i < count( $keys );  $i++ ){
+            $sql.= $keys[$i] . "=" . $values[$i]. " and ";
+        }
+
+        // The Final Sql Statement
+        $sql = substr( $sql, 0 , strrpos( $sql, 'and' ) );
+        
+        // Connect To Database
+        $stat = $database->databaseConnection()->prepare( $sql );
+        $data = $stat->execute() ? $stat->fetchAll( \PDO::FETCH_CLASS, get_called_class() ) : false ;
+        if( !empty( $data ) ){
+            return $data;
+        }
+        return false;
+    }
+    // Method To Delete Data With Column
+    public static function deletebycolumn( $database, $column =[] )
+    {
+         // Extract The Column And Values
+         $keys          = array_keys( $column );
+         $values        = array_values( $column );
+ 
+         // Prepare Sql Statement
+         $sql = "delete  from ".static::$tableName." where ";
+        
+         // Loop Thorugh key( Column )
+         for( $i = 0;  $i < count( $keys );  $i++ ){
+             $sql.= $keys[$i] . "=" . $values[$i]. " and ";
+         }
+
+         // The Final Sql Statement
+         $sql = substr( $sql, 0 , strrpos( $sql, 'and' ) );
+
+         // Connect To Database
+         $stat = $database->databaseConnection()->prepare( $sql );
+         return $stat->execute() ? true : false ;
+    }
+    // Method To Get The Adata From Database With PK
     public static function getbypk(  $database, $pk )
     {
 
