@@ -1,5 +1,5 @@
 <?php
 $_['title'] = 'الصفحة الرئيسيه';
-$_['bread_crumb_title'] ='<a href="/">الصفحة الرئيسيه</a>';
-$_['content'] =  'المحتوي الرئيسي';
+$_['bread_crumb'] ='<a href="/" class="active">الصفحة الرئيسيه</a>';
+$_['homepage_title'] =  'المحتوي الرئيسي';
 

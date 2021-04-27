@@ -17,7 +17,7 @@ class GroupPrivilegeModel extends AbstractModel
     public static $primaryKey = 'id';
     public static $tableName   = 'app_groups_privileges';
     public static $tableSchema = [
-        'group_id' => parent::DATATYPE_STR,
+        'group_id'      => parent::DATATYPE_STR,
         'privilege_id'  => parent::DATATYPE_STR,
     ];
     

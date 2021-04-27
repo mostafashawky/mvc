@@ -3,9 +3,9 @@
 	<div class="admin-information">
 		<div class="image-admin"></div>
 		<a class="admin-name">
-			مصطفي شوقي
+			<?= $this->session->user->profile->first_name . " " .$this->session->user->profile->last_name  ?>
 		</a>
-		<span class="admin-role"><?= $sidebar_admin_role ?></span>
+		<span class="admin-role"><?= $this->session->user->group_name ?></span>
 	</div>
 	<!-- End Admin Information -->
 
@@ -21,19 +21,20 @@
 			<li class="link <?= $this->checkActive('client')?>">
 				<a  href = "/index"><i class="fa fa-user"></i> <?= $sidebar_links_client ?></a> 
 			</li>
-			<li class="link <?= $this->checkActive('privilege')?>">
+			<li class="link <?= $this->checkActive('users')?>">
 				<a class="toggle-submenu" href="#"><i class="fa fa-user"></i> <?= $sidebar_links_user?> </a>
 				<!-- Submenu Users -->
 				<ul class="submenu list-unstyled">
 					<li class="link <?= $this->checkActive('group') ?> ">
 						<a href="/users"><i class="fa fa-user"></i> <?= $sidebar_links_user ?></a>
 					</li>
-					<li class="link <?= $this->checkActive('group') ?> ">
-						<a href="/group"><i class="fa fa-users"></i><?= $sidebar_links_group?></a>
-					</li>	
 					<li class="link <?= $this->checkActive('privilege')?>">
 						<a href="/privilege"><i class="fa fa-key"></i> <?= $sidebar_links_privilege ?></a>
 					</li>
+					<li class="link <?= $this->checkActive('group') ?> ">
+						<a href="/group"><i class="fa fa-users"></i><?= $sidebar_links_group?></a>
+					</li>	
+				
 				</ul> 
 				<!-- End Submenu Users -->
 			</li>
@@ -57,7 +58,7 @@
 				<a href="/language"> <i class="fa fa-language"></i> <?= $sidebar_links_changelanguage ?>  </a> 
 			</li>
 			<li class="link">
-				<a href="/employee"> <i class="fa fa-sign-out"></i> <?= $sidebar_links_logout ?> </a> 
+				<a href="/authentication/logout"> <i class="fa fa-sign-out"></i> <?= $sidebar_links_logout ?> </a> 
 			</li>
 		</ul>
 	</div>

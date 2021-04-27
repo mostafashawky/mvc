@@ -1,6 +1,5 @@
 <?php
 
-
 namespace MVC\MODEL;
 
 //import abstract employee

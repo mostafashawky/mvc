@@ -1,29 +1,39 @@
 <?php
-/*
- * Author: Mostafa Shawky
- * Email: mostafa.shawky47@mail.ru
- * FileName: AbstractController
- * Description: the parent controller class contains the property and method that used in all controller
- */
 
 namespace MVC\CONTROLLER;
 
-
+use MVC\LIB\Register;
 use MVC\LIB\FrontController;
+use MVC\LIB\template\Template;
+use MVC\LIB\validate;
 
 class AbstractController
 {
+    use validate;
+    // Controller Name Which Will Be Provided With Set Controller Interface
     protected $_controller;
+
+    // Action Name Which Will Be Proviced With Set Action Interface
     protected $_action;
+
+    // Paramater Array Whici Will Be Provided With Set Paramater 
     protected $_params;
-    protected $_language;
+
+    // The Register Object That Contain The Template And Language Services
+    protected $_register; 
+    
+    // Template Object Which Resposible For Handle Tempalte
     protected $_template;
-    protected $_database;
-    protected $_data = [];
+
+    // Data Model
+    protected $_data = []; 
+    
+    // Controller Interface Method To Supply The Controller Information
     public function setController( $controller )
     {
         $this->_controller = $controller;
     }
+
     public function setAction( $action )
     {
         $this->_action = $action;
@@ -32,19 +42,26 @@ class AbstractController
     {
         $this->_params = $params;
     }
-    public function setLanguage( $language )
-    {
-        $this->_language = $language;
-    }
-    public function setTemplate( $template )
+    public function setTemplate( Template $template )
     {
         $this->_template = $template;
     }
-    // Set Database Object To Inject It Into Requried Controller
-    public function setDatabase( $database )
+    public function setRegister( Register $register )
     {
-        $this->_database = $database;
+        $this->_register = $register;
     }
+    
+    // Get The Object From Registery 
+    public function __get( $key )
+    {
+        // The Key Here Get The Property Name That Contain The Object In Registery 
+        if( isset( $this->_register->$key ) ){
+            return $this->_register->$key;
+        } else{
+            trigger_error('This Object '.$key.' Dosen\'t Exist');
+        }
+    }
+
     public function notfoundAction()
     {
         $this->_view();
@@ -60,15 +77,24 @@ class AbstractController
         // Check If The File Exists
         if( file_exists( $view ) ) { 
             // Get Translation Array Of Action View
-            $translation = $this->_language->getTranslation();
+            $translation = $this->language->getTranslation();
+
             // Provide The Logic Data To Template Object To View It
             $this->_template->setlogicData( $this->_data, $translation );
+
             // Provide The View Path To Template Object
-            $this->_template->setviewPath( $view );  
+            $this->_template->setviewPath( $view );
+              
+            // Provide Temlate Service With Register Module
+            $this->_template->setRegister( $this->_register );
+            
             // Render App To Load The Templates 
             $this->_template->renderApp();
-                 
+
+        } else {
+            triggeR_error( "The Controller And Action Exist But View File Dose't Exist",E_USER_ERROR );
         }
 
+
     }
-}
+} 

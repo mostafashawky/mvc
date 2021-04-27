@@ -15,18 +15,18 @@ class GroupController extends AbstractController
     public function defaultAction()
     {
         // Get The Groups With Group Model And Provide The Data To Data Array
-        $groups = GroupModel::getAll( $this->_database );
+        $groups = GroupModel::getAll( );
         $this->_data['groups'] = $groups;
 
         // Load Translatio File
-        $this->_language->loadtranslationFile('template|common');
-        $this->_language->loadtranslationFile('group|default');
+        $this-> language->loadtranslationFile('template|common');
+        $this->language->loadtranslationFile('group|default');
         $this->_view();
     }
     public function addAction()
     {
         // Get The Privileges
-        $privilege = PrivilegeModel::getAll( $this->_database );
+        $privilege = PrivilegeModel::getAll( );
         
         // Provide Data Array With Privilege Data
         $this->_data['privileges'] = $privilege;
@@ -51,35 +51,35 @@ class GroupController extends AbstractController
                     $groupPrivilege->group_id = $group->group_id;
                     $groupPrivilege->privilege_id = $privilege;
                 
-                    $groupPrivilege->save( $this->_database ) ? $this->redirect('/group') : false ;
+                    $groupPrivilege->save( ) ? $this->redirect('/group') : false ;
                 }   
             }
             
         }   
 
         // Load Translatio File
-        $this->_language->loadtranslationFile('template|common');
-        $this->_language->loadtranslationFile('group|add');
+        $this->language->loadtranslationFile('template|common');
+        $this->language->loadtranslationFile('group|add');
 
         $this->_view();
     }
     public function editAction()
     {   
         // Get Group Model To Get Required Group
-        $group = GroupModel::getbypk( $this->_database, $this->_params[0]  );
+        $group = GroupModel::getbypk( $this->_params[0]  );
 
-        // Check If The Returened Value Equal Fale=> Mean That The Data Dosen't Exit Or Wrong Id
+        // Check If The Returened Value Equal False Mean That The Data Dosen't Exit Or Wrong Id
         if( false == $group ) {
             $this->redirect('/group');
         }
         $this->_data['group'] = $group;
         
         // Get Privileges Model To Get All Privileges
-        $privilege = PrivilegeModel::getAll( $this->_database );
+        $privilege = PrivilegeModel::getAll( );
         $this->_data['privileges'] = $privilege;
         
         // Get Privilege That Related To Group We Want To Edit
-        $privilegesId = GroupPrivilegeModel::getbycolumn( $this->_database, ['group_id' => $group->group_id]  );
+        $privilegesId = GroupPrivilegeModel::getbycolumn( ['group_id' => $group->group_id]  );
         $privilegesIdstack = [];
       
         if( false != $privilegesId ){   
@@ -105,13 +105,13 @@ class GroupController extends AbstractController
             
             // Reset The Group Object That We Get With Pk
             $group->group_name = $this->filterStr( $groupname );
-            $group->updateData( $this->_database );
+            $group->updateData(  );
             
             // Loop Through The Deleted Privileges 
             // We Here Deal With Privilege_id Not PK So We Should Use Delete By Column
             foreach( $deletedPrivileges as $deletedPrivilege ){
                 // Delete Them
-                GroupPrivilegeModel::deletebycolumn($this->_database, ['privilege_id'=>$deletedPrivilege,'group_id'=> $group->group_id]);
+                GroupPrivilegeModel::deletebycolumn( ['privilege_id'=>$deletedPrivilege,'group_id'=> $group->group_id]);
 
             }
 
@@ -121,14 +121,14 @@ class GroupController extends AbstractController
                $groupPrivilege = new GroupPrivilegeModel();
                $groupPrivilege->group_id     = $group->group_id;
                $groupPrivilege->privilege_id = $insertPrivilege;
-               $groupPrivilege->insertData( $this->_database ); 
+               $groupPrivilege->insertData( ); 
             }   
             $this->redirect('/group');
         }
         
         // Load Translation File
-        $this->_language->loadtranslationFile('template|common');
-        $this->_language->loadtranslationFile('group|edit');
+        $this->language->loadtranslationFile('template|common');
+        $this->language->loadtranslationFile('group|edit');
         $this->_view();
     }
 }

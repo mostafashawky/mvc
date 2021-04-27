@@ -1,5 +1,4 @@
 <?php
-
 namespace MVC\MODEL;
 
 use MVC\MODEL\AbstractModel;

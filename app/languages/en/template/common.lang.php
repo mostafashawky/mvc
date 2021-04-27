@@ -12,4 +12,4 @@ $_['sidebar_links_product'] = 'Products';
 $_['sidebar_links_report'] = 'Reports';
 $_['sidebar_links_changelanguage'] = 'Change Languages';
 $_['sidebar_links_logout'] = 'Logout ';
-$_['header_homepage'] = 'Homepage';
+$_['header_control'] = 'Dashboard';

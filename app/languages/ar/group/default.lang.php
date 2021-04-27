@@ -1,6 +1,6 @@
 <?php
 $_['title'] = 'المجموعات';
-$_['bread_crumb_title'] = '<a href="/">الصفحة الرئيسيه</a> <span> > </span><a href="/group">المجموعات</a>';
+$_['bread_crumb'] = '<a href="/">الصفحة الرئيسيه</a> <span> > </span><a class="active" href="/group">المجموعات</a>';
 $_['group_add'] = 'اضافة مجموعه';
 $_['table_group_name'] = 'اسم المجموعة';
 $_['table_group_control'] ='التحكم';

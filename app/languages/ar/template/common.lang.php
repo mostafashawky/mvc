@@ -12,4 +12,4 @@ $_['sidebar_links_product'] = 'المنتجات';
 $_['sidebar_links_report'] = 'الفواتير';
 $_['sidebar_links_changelanguage'] = 'تغيير الغه';
 $_['sidebar_links_logout'] = 'تسجيل الخروج';
-$_['header_homepage'] = 'الصفحة الرئيسيه';
+$_['header_control'] = 'لوحة التحكم';

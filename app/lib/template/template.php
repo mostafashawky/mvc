@@ -5,21 +5,32 @@ namespace MVC\LIB\template;
 
 class Template
 {
-    // ActiveFeature Library To Provice The Required Link With Active Class
-    use ActiveFeature ;
+    // Import Template Helper 
+    use TemplateHelper;
 
     private $_actionPath;
     private $_dataModel;
     private $_dataTemplate;
+    private $_register;
     public function __construct( $holdDataTemplate )
     {
         
         // Template Data
         $this->_dataTemplate = $holdDataTemplate;
     }
+
+    // Work When The Prop Dosen't Exists
+    public function __get( $key )
+    { 
+        return $this->_register->$key;
+    }
+
+    public function editTemplateparts( $newParts)
+    {
+        $this->_dataTemplate = $newParts;
+    }
     public function setlogicData( $data, $translation )
     {
-  
         // Check If There Is Logic Data
         if( $data != null  ) {
             $this->_dataModel = array_merge( $data, $translation );
@@ -28,10 +39,19 @@ class Template
         }
 
     }
+
+    // Interface To Get View Path From Controller To Load It In template Module
     public function setviewPath( $view )
     {
         $this->_actionPath = $view;
     }
+
+    // Interface To Get Messenger Module To Print Messege 
+    public function setRegister( $register )
+    {
+        $this->_register = $register;
+    }
+
     // Render Start Template 
     private function _startTemplateheader()
     {
@@ -69,11 +89,13 @@ class Template
         require_once $endTemplateheader;
         
     }
+
     private function _generateBlocks( )
     {
         // Check If The Key Blocks Exists
         if( array_key_exists( 'template_blocks', $this->_dataTemplate) ){
             $templateBlocks = $this->_dataTemplate['template_blocks'];
+            
             // Generate Template Block
             foreach( $templateBlocks as $block => $path ) {
                 // Check if The Block Not Equal Action View
@@ -92,6 +114,7 @@ class Template
 
         }
     }
+
     private function _loadScripts()
     {
         // Check If The Ket Template Footer exists
@@ -103,6 +126,7 @@ class Template
             }
         }
     }
+
     public function renderApp()
     {
         $this->_startTemplateheader( );

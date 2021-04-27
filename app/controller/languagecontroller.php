@@ -9,12 +9,13 @@ class LanguageController extends AbstractController
     use RedirectPageFeature;
     public function defaultAction()
     {
-        if($_SESSION['lang'] == 'ar') {
-            $_SESSION['lang'] = 'en';
+        global $session;
+        if($session->lang == 'ar') {
+            $session->lang = 'en';
         } else {
-            $_SESSION['lang'] = 'ar';
+            $session->lang = 'ar';
         }
-        echo $_SESSION['lang'];
+    
         $this->redirect( $_SERVER['HTTP_REFERER'] );
     }
 }

@@ -12,11 +12,27 @@ let toggleSubmenu = Array.from( document.querySelectorAll(".toggle-submenu") );
 // Wrapper Action
 let wrapperAction = document.querySelector(".wrapper-action");
 
+// Menu Admin Settings
+let adminSettings = document.querySelector(".admin-settings");
 
-
+// Menu Settings
+let menuSettings = document.querySelector("#menu-settings");
 
 
 // All Function
+// Header Menu Settings
+adminSettings.onclick = function( event )
+{
+	// Toggle Class Active
+	document.querySelector("#"+this.getAttribute("data-menu")).classList.toggle("active");
+	event.stopPropagation()
+	
+}
+document.onclick = function() 
+{	
+	menuSettings.classList.remove("active");
+}
+
 // Handle Sidebar ( Close And Open )
 toggleIconsidebar.addEventListener('click', function(){	
 	// Close Sidebar
@@ -40,4 +56,8 @@ toggleSubmenu.forEach( ( menu )=>{
 		this.nextElementSibling.classList.toggle('active') 
 	})
 })
+
+
+
+
 

@@ -12,8 +12,8 @@ use MVC\CONTROLLER\AbstractController;
 class NotfoundController extends AbstractController{
     public function notfoundAction()
     {
-        $this->_language->loadtranslationFile('template|common');
-        $this->_language->loadtranslationFile('notfound|notfound');
+        $this->language->loadtranslationFile('template|common');
+        $this->language->loadtranslationFile('notfound|notfound');
         $this->_view();
     }
 
